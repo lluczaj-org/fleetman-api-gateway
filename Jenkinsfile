@@ -5,8 +5,9 @@ pipeline {
      // You must set the following environment variables
      // ORGANIZATION_NAME
      // YOUR_DOCKERHUB_USERNAME (it doesn't matter if you don't have one)
-
+     ORGANIZATION_NAME = "lluczaj-org"
      SERVICE_NAME = "fleetman-api-gateway"
+     REGISTRY_URL = "ec2-52-14-164-81.us-east-2.compute.amazonaws.com:5000"
      REPOSITORY_TAG="${YOUR_DOCKERHUB_USERNAME}/${ORGANIZATION_NAME}-${SERVICE_NAME}:${BUILD_ID}"
    }
 
@@ -25,7 +26,7 @@ pipeline {
 
       stage('Build and Push Image') {
          steps {
-           sh 'docker image build -t ${REPOSITORY_TAG} .'
+           sh 'docker image build -t ${REGISTRY_URL}/${SERVICE_NAME} .'
          }
       }
 

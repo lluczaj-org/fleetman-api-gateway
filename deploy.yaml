@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: api-gateway
-        image: ${REPOSITORY_TAG}
+        image: ec2-52-14-164-81.us-east-2.compute.amazonaws.com:5000/fleetman-api-gateway
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: production-microservice
