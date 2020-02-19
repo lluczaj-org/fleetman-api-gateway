@@ -27,7 +27,8 @@ pipeline {
       stage('Build and Push Image') {
          steps {
            sh 'docker image build -t ${REGISTRY_URL}/${SERVICE_NAME} .'
-         }
+           sh 'docker push ${REGISTRY_URL}/${SERVICE_NAME}' 
+        }
       }
 
       stage('Deploy to Cluster') {
